@@ -3,6 +3,20 @@
 <head>
     <title>Container Page</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            background: #222;
+            background-image: linear-gradient(to right, #333 1px, transparent 1px), 
+            linear-gradient(to bottom, #333 1px, transparent 1px);
+            background-size: 40px 40px;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
         body {
             display: flex;
             flex-wrap: wrap;
@@ -11,16 +25,58 @@
             height: 100vh;
             margin: 0;
         }
+        body:hover #cursor{
+            transform: translate(-1px, 5px)rotate(15deg)scale(1);
+        }
 
         .container {
-            width: 200px;
+            width: 300px;
             height: 200px;
-            background-color: #ccc;
+            background-color: rgba(120, 120, 120, 0.3);
             margin: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            color: white;
+            font-family: Verdana, sans-serif;
+        }
+
+        .container:hover{
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: background-color 0.5s ease-in;
+        }
+
+        .container:nth-child(1):hover{
+            background-color: rgba(255, 150, 44, 0.5);
+            transition: background-color 0.5s ease-in;
+        }
+        .container:nth-child(2):hover{
+            background-color: rgba(255, 255, 0, 0.5);
+            transition: background-color 0.5s ease-in;
+        }
+        .container:nth-child(3):hover{
+            background-color: rgba(0, 255, 38, 0.5);
+            transition: background-color 0.5s ease-in;
+        }
+        .container:nth-child(4):hover{
+            background-color: rgba(0, 200, 255, 0.5);
+            transition: background-color 0.5s ease-in;
+        }
+        .container:nth-child(5):hover{
+            background-color: rgba(0, 30, 255, 0.5);
+            transition: background-color 0.5s ease-in;
+        }
+
+        @keyframes animate{
+            0%{
+                filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0)
+                drop-shadow(0 0 30px #0f0) hue-rotate(0deg);
+            }
+            100%{
+                filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 15px #0f0)
+                drop-shadow(0 0 30px #0f0) hue-rotate(360deg);
+            }
         }
 
         @media (max-width: 600px) {
@@ -32,19 +88,41 @@
 </head>
 <body>
     <div class="container" onclick="window.location.href='./1 Background Animation/background.html'">
-        <h2>Container 1</h2>
+        <h2>Background Show</h2>
     </div>
     <div class="container" onclick="window.location.href='./2 Jump Words/jump.html'">
-        <h2>Container 2</h2>
+        <h2>Jumping Words</h2>
     </div>
     <div class="container" onclick="window.location.href='./3 Bell Notification/bell.html'">
-        <h2>Container 3</h2>
+        <h2>Bell Notification</h2>
     </div>
     <div class="container" onclick="window.location.href='./4 illuminate/illuminate.html'">
-        <h2>Container 4</h2>
+        <h2>Illuminate</h2>
     </div>
     <div class="container" onclick="window.location.href='./5 search - Modified/search.html'">
-        <h2>Container 5</h2>
+        <h2>Search</h2>
     </div>
 </body>
+    <script>
+
+        let body = document.querySelector('body'); 
+        let isHoldingClick = false;
+
+        document.onmousedown = function(e) {
+            isHoldingClick = true;
+            createAndAppendElement(e);
+        }
+
+        document.onmouseup = function() {
+            isHoldingClick = false;
+        }
+
+        document.onmousemove = function(e){
+            if (isHoldingClick) {
+                createAndAppendElement(e);
+            }
+            body.style.backgroundPositionX = e.pageX/-4 + 'px';
+            body.style.backgroundPositionY = e.pageY/-4 + 'px';
+        }
+    </script>
 </html>
