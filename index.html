@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWD Activities</title>
+    <link rel="stylesheet" href="Style/style.css" class="css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            font-family: 'ADLaM Display', sans-serif;
+            font-size: 1rem;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {    
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            animation: backgroundAnimation 10s infinite;
+        }
+        @keyframes backgroundAnimation {
+            0% { background-color: #e5ded4; }
+            25% { background-color: #6bfaff; }
+            50% { background-color: #293070; }
+            75% { background-color: #6bfaff; }
+            100% { background-color: #e5ded4; }
+        }
+        .cardContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            width: 100%;
+            height: 50%;
+            padding: 2% 20% 5% 20%;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+        .cardContainer .card {
+            background-color: #272b2e;
+            border-radius: 5px;
+            border: 5px solid #EFF6E8;
+            padding: 5%;
+            min-height: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            gap: 10px;
+            box-shadow: -1px 8px 12px -3px rgba(0,0,0,0.79);
+                        -webkit-box-shadow: -1px 8px 12px -3px rgba(0,0,0,0.79);
+                        -moz-box-shadow: -1px 8px 12px -3px rgba(0,0,0,0.79);
+        }
+        .cardContainer .card .actNum {
+            font-family: "Kdam Thmor Pro", sans-serif;
+            background-color: #3F5471;
+            border-radius: 50%;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+        }
+        .card .title {
+            background-color: #3F5471;
+            width: 120%;
+            height: 14%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0px 19px 13px -16px rgba(0,0,0,0.43);
+                        -webkit-box-shadow: 0px 19px 13px -16px rgba(0,0,0,0.43);
+                        -moz-box-shadow: 0px 19px 13px -16px rgba(0,0,0,0.43);
+            font-size: 1.2rem;
+            font-family: "Kdam Thmor Pro", sans-serif;
+            font-weight: 1200;
+            font-style: normal;
+        }
+        .card .imgBox {
+            height: 50%;
+            width: 100%;
+        }
+        .card .imgBox img {
+            border: 3px solid #293070;
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card .button1{
+            background-color: #F5F3F4;
+            border-bottom: 5px solid #C4C4C4;
+            border-radius: 5px;
+            width: 50%;
+            height: 12%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: #422D00;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            &:active{
+                background-color: #C4C4C4;
+                border-bottom: 0px;
+            }
+        }
+        .card .button2{
+            background-color: #5768fa;
+            border-bottom: 5px solid #192591;
+            border-radius: 5px;
+            width: 50%;
+            height: 12%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1568px) {
+            .screenContainer .screen {
+                height: 30%;
+                width: 60%;
+            }
+            .cardContainer {
+                grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
+                padding: 2% 10% 5% 10%;
+            }
+            .card .title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .cardContainer {
+                grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
+                padding: 5% 5% 10% 5%;
+            }
+            .card .title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cardContainer {
+                grid-template-columns: repeat(1, 1fr);
+                padding: 8% 5% 10% 5%;
+            }
+            .card .title {
+                font-size: 0.8rem;
+            }
+        }
+
+    </style>
+    <script>
+function toggleImage(imageSrc) {
+    var imageElement = document.getElementById('_screenImage');
+    var staticScreenSrc = '../Images/staticScreen.gif';
+    if (imageElement.src === imageSrc) {
+        imageElement.src = staticScreenSrc;
+    } else {
+        imageElement.src = imageSrc;
+    }
+}
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="cardContainer">
+            <div class="card" id="_card1">
+                <div class="imgBox">
+                    <img src="./images/jumpwords.png" alt="">
+                </div>
+                <h1 class="title">Jumping Words</h1>
+                <div class="button2" id="_button2a">
+                    <h1>Visit</h1>
+                </div>
+            </div>
+            <div class="card" id="_card2">
+                <div class="imgBox">
+                    <img src="Images/superMario.jpg" alt="">
+                </div>     
+                <h1 class="title">Bell Notification</h1>
+                <div class="button2" id="_button2b">
+                    <h1>Visit</h1>
+                </div>
+            </div>
+            <div class="card" id="_card3">
+                <div class="imgBox">
+                    <img src="Images/pixelNotif.jpg" alt="">
+                </div>
+                <h1 class="title">Illuminate</h1>
+                <div class="button2" id="_button2c">
+                    <h1>Visit</h1>
+                </div>
+            </div>
+            <div class="card" id="_card4">
+                <div class="imgBox">
+                    <img src="Images/pixelTorch.jpg" alt="">
+                </div>
+                <h1 class="title">Search Bar</h1>
+                <div class="button2" id="_button2d">
+                    <h1>Visit</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('_button2a').addEventListener('click', function(){
+            window.location.href = '2 Jump Words/index.html';
+        });
+        document.getElementById('_button2b').addEventListener('click', function(){
+            window.location.href = 'JumpLetters/jumpLetters.html';
+        });
+        document.getElementById('_button2c').addEventListener('click', function(){
+            window.location.href = 'NotifBell/notifBell.html';
+        });
+        document.getElementById('_button2d').addEventListener('click', function(){
+            window.location.href = 'Illumination/illumination.html';
+        });
+        document.getElementById('_button2e').addEventListener('click', function(){
+            window.location.href = 'SearchBar/searchBar.html';
+        });
+</script>
+</body>
+</html>
